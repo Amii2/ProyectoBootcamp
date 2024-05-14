@@ -1,0 +1,19 @@
+#root {
+    padding: 40px;
+}
+
+#root > .container {
+    margin-bottom: 56px;
+    border: 1px solid #dee2e6;
+    border-radius: 32px;
+    padding: 48px;
+    box-shadow: 0 20px 40px -16px rgba(88, 88, 88, 0.056);
+}
+
+table {
+    border: 1px solid #a6c3ca;
+}
+
+td {
+    vertical-align: middle;
+}
