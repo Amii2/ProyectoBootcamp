@@ -9,7 +9,7 @@ import "./tables-style.css";
 import CompNav from "./components/CompNav.jsx";
 import Footer from "./components/CompFooter.jsx";
 
-alert(process.env.URL);
+console.log(process.env);
 
 function App() {
   return (
