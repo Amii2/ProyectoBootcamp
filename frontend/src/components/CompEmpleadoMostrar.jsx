@@ -14,7 +14,7 @@ const CompEmpleadoMostrar = () => {
 
   const getEmpleados = async () => {
     const datos = await axios.get(URL);
-    console.log(datos.data);
+
     setEmpleados(datos.data);
   };
 
