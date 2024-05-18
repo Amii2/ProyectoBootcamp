@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 
+const URL = import.meta.env.VITE_URL + "clientes/";
+
 const CompClienteAgregar = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -14,7 +16,7 @@ const CompClienteAgregar = () => {
 
   const guardarCliente = async (e) => {
     e.preventDefault();
-    await axios.post(import.meta.env.URL, {
+    await axios.post(URL, {
       nombres: nombre,
       apellidos: apellido,
       documento: documento,

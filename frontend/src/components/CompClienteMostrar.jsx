@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 
+const URL = import.meta.env.VITE_URL + "clientes/";
+
 const CompClienteMostrar = () => {
   const [clientes, setClientes] = useState([]);
 
@@ -11,12 +13,12 @@ const CompClienteMostrar = () => {
   }, []);
 
   const getClientes = async () => {
-    const datos = await axios.get(import.meta.env.URL);
+    const datos = await axios.get(URL);
     setClientes(datos.data);
   };
 
   const eliminarCliente = async (id) => {
-    await axios.delete(import.meta.env.URL + id);
+    await axios.delete(URL + id);
     getClientes();
   };
 

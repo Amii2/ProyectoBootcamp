@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 
+const URL = import.meta.env.VITE_URL + "clientes/";
+
 const CompClienteEditar = () => {
   const { id } = useParams();
   const [nombre, setNombre] = useState("");
@@ -14,7 +16,7 @@ const CompClienteEditar = () => {
   const navigate = useNavigate();
 
   const getClienteById = async () => {
-    const datos = await axios.get(import.meta.env.URL + id);
+    const datos = await axios.get(URL + id);
     setNombre(datos.data.nombres);
     setApellido(datos.data.apellidos);
     setDocumento(datos.data.documento);
@@ -25,7 +27,7 @@ const CompClienteEditar = () => {
 
   const modificarCliente = async (e) => {
     e.preventDefault();
-    await axios.put(import.meta.env.URL + id, {
+    await axios.put(URL + id, {
       nombres: nombre,
       apellidos: apellido,
       documento: documento,

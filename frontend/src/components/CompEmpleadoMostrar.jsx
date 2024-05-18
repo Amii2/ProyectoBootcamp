@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 
+const URL = import.meta.env.VITE_URL + "empleados/";
+
 const CompEmpleadoMostrar = () => {
   const [empleados, setEmpleados] = useState([]);
 
@@ -11,13 +13,13 @@ const CompEmpleadoMostrar = () => {
   }, []);
 
   const getEmpleados = async () => {
-    const datos = await axios.get(import.meta.env.URL);
+    const datos = await axios.get(URL);
     console.log(datos.data);
     setEmpleados(datos.data);
   };
 
   const eliminarEmpleado = async (id) => {
-    await axios.delete(import.meta.env.URL + id);
+    await axios.delete(URL + id);
     getEmpleados();
   };
 
