@@ -11,7 +11,7 @@ const CompEmpleadoEditar = () => {
   const navigate = useNavigate();
 
   const getEmpleadoById = async () => {
-    const datos = await axios.get(process.env.URL + id);
+    const datos = await axios.get(import.meta.env.URL + id);
     setNombre(datos.data.nombre);
     setColor(datos.data.color);
     setEspecie(datos.data.especie);
@@ -19,7 +19,7 @@ const CompEmpleadoEditar = () => {
 
   const modificarEmpleado = async (e) => {
     e.preventDefault();
-    await axios.put(process.env.URL + id, {
+    await axios.put(import.meta.env.URL + id, {
       nombres: nombre,
       colors: color,
       especie: especie,

@@ -11,12 +11,12 @@ const CompClienteMostrar = () => {
   }, []);
 
   const getClientes = async () => {
-    const datos = await axios.get(process.env.URL);
+    const datos = await axios.get(import.meta.env.URL);
     setClientes(datos.data);
   };
 
   const eliminarCliente = async (id) => {
-    await axios.delete(process.env.URL + id);
+    await axios.delete(import.meta.env.URL + id);
     getClientes();
   };
 

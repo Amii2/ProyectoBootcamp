@@ -11,7 +11,7 @@ const CompEmpleadoAgregar = () => {
 
   const guardarEmpleado = async (e) => {
     e.preventDefault();
-    await axios.post(process.env.URL, {
+    await axios.post(import.meta.env.URL, {
       nombre: nombre,
       color: color,
       especie: especie,

@@ -14,7 +14,7 @@ const CompClienteAgregar = () => {
 
   const guardarCliente = async (e) => {
     e.preventDefault();
-    await axios.post(process.env.URL, {
+    await axios.post(import.meta.env.URL, {
       nombres: nombre,
       apellidos: apellido,
       documento: documento,

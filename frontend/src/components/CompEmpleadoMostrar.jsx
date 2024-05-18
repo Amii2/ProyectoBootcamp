@@ -11,13 +11,13 @@ const CompEmpleadoMostrar = () => {
   }, []);
 
   const getEmpleados = async () => {
-    const datos = await axios.get(process.env.URL);
+    const datos = await axios.get(import.meta.env.URL);
     console.log(datos.data);
     setEmpleados(datos.data);
   };
 
   const eliminarEmpleado = async (id) => {
-    await axios.delete(process.env.URL + id);
+    await axios.delete(import.meta.env.URL + id);
     getEmpleados();
   };
 

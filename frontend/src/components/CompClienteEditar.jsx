@@ -14,7 +14,7 @@ const CompClienteEditar = () => {
   const navigate = useNavigate();
 
   const getClienteById = async () => {
-    const datos = await axios.get(process.env.URL + id);
+    const datos = await axios.get(import.meta.env.URL + id);
     setNombre(datos.data.nombres);
     setApellido(datos.data.apellidos);
     setDocumento(datos.data.documento);
@@ -25,7 +25,7 @@ const CompClienteEditar = () => {
 
   const modificarCliente = async (e) => {
     e.preventDefault();
-    await axios.put(process.env.URL + id, {
+    await axios.put(import.meta.env.URL + id, {
       nombres: nombre,
       apellidos: apellido,
       documento: documento,
