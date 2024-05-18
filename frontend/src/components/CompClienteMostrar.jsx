@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 
-const URL = "http://localhost:3000/api/clientes/";
-
 const CompClienteMostrar = () => {
   const [clientes, setClientes] = useState([]);
 
@@ -13,12 +11,12 @@ const CompClienteMostrar = () => {
   }, []);
 
   const getClientes = async () => {
-    const datos = await axios.get(URL);
+    const datos = await axios.get(process.env.URL);
     setClientes(datos.data);
   };
 
   const eliminarCliente = async (id) => {
-    await axios.delete(URL + id);
+    await axios.delete(process.env.URL + id);
     getClientes();
   };
 

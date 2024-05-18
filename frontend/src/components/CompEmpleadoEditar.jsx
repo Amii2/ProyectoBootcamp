@@ -3,8 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 
-const URL = "http://localhost:3000/api/empleados/";
-
 const CompEmpleadoEditar = () => {
   const { id } = useParams();
   const [nombre, setNombre] = useState("");
@@ -13,7 +11,7 @@ const CompEmpleadoEditar = () => {
   const navigate = useNavigate();
 
   const getEmpleadoById = async () => {
-    const datos = await axios.get(URL + id);
+    const datos = await axios.get(process.env.URL + id);
     setNombre(datos.data.nombre);
     setColor(datos.data.color);
     setEspecie(datos.data.especie);
@@ -21,7 +19,7 @@ const CompEmpleadoEditar = () => {
 
   const modificarEmpleado = async (e) => {
     e.preventDefault();
-    await axios.put(URL + id, {
+    await axios.put(process.env.URL + id, {
       nombres: nombre,
       colors: color,
       especie: especie,

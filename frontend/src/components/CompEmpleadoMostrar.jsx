@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 
-const URL = "http://localhost:3000/api/empleados/";
-
 const CompEmpleadoMostrar = () => {
   const [empleados, setEmpleados] = useState([]);
 
@@ -13,13 +11,13 @@ const CompEmpleadoMostrar = () => {
   }, []);
 
   const getEmpleados = async () => {
-    const datos = await axios.get(URL);
+    const datos = await axios.get(process.env.URL);
     console.log(datos.data);
     setEmpleados(datos.data);
   };
 
   const eliminarEmpleado = async (id) => {
-    await axios.delete(URL + id);
+    await axios.delete(process.env.URL + id);
     getEmpleados();
   };
 

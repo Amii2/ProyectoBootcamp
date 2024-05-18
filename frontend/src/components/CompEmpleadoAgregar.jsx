@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 
-const URL = "http://localhost:3000/api/empleados/";
-
 const CompEmpleadoAgregar = () => {
   const [nombre, setNombre] = useState("");
   const [color, setColor] = useState("");
@@ -13,12 +11,12 @@ const CompEmpleadoAgregar = () => {
 
   const guardarEmpleado = async (e) => {
     e.preventDefault();
-    await axios.post(URL, {
+    await axios.post(process.env.URL, {
       nombre: nombre,
       color: color,
       especie: especie,
     });
-    navigate("-1");
+    navigate(-1);
   };
 
   return (

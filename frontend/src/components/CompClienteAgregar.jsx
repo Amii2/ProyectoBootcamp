@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Form, FloatingLabel, Container, Button } from "react-bootstrap";
 
-const URL = "http://localhost:3000/api/clientes/";
-
 const CompClienteAgregar = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -16,7 +14,7 @@ const CompClienteAgregar = () => {
 
   const guardarCliente = async (e) => {
     e.preventDefault();
-    await axios.post(URL, {
+    await axios.post(process.env.URL, {
       nombres: nombre,
       apellidos: apellido,
       documento: documento,
